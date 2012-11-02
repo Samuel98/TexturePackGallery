@@ -1,0 +1,4 @@
+name: TexturePackGallery
+version: 0.1
+main: uk.co.jacekk.bukkit.texturepackgallery.TexturePackGallery
+softdepend: [Vault]
