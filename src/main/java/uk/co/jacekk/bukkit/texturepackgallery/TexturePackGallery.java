@@ -11,8 +11,8 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 
 import net.milkbowl.vault.economy.Economy;
 
-import uk.co.jacekk.bukkit.baseplugin.v4.BasePlugin;
-import uk.co.jacekk.bukkit.baseplugin.v4.storage.DataStore;
+import uk.co.jacekk.bukkit.baseplugin.v5.BasePlugin;
+import uk.co.jacekk.bukkit.baseplugin.v5.storage.DataStore;
 
 public class TexturePackGallery extends BasePlugin {
 	
@@ -71,7 +71,7 @@ public class TexturePackGallery extends BasePlugin {
 			}
 		}
 		
-		this.permissionManager.registerPermissions(Permission.values());
+		this.permissionManager.registerPermissions(Permission.class);
 		this.commandManager.registerCommandExecutor(new TexturePackExecutor(this));
 		this.pluginManager.registerEvents(new TexturePackListener(this), this);
 	}

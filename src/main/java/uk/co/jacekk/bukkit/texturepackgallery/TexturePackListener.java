@@ -24,7 +24,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.map.MapView;
 import org.bukkit.material.Directional;
 
-import uk.co.jacekk.bukkit.baseplugin.v4.event.BaseListener;
+import uk.co.jacekk.bukkit.baseplugin.v5.event.BaseListener;
 
 public class TexturePackListener extends BaseListener<TexturePackGallery> {
 	
@@ -191,7 +191,7 @@ public class TexturePackListener extends BaseListener<TexturePackGallery> {
 			Sign sign = (Sign) block.getState();
 			Player player = event.getPlayer();
 			
-			if (plugin.packs.containsKey(sign.getLine(1)) && !Permission.SIGN_REMOVE.hasPermission(player)){
+			if (plugin.packs.containsKey(sign.getLine(1)) && !Permission.SIGN_REMOVE.has(player)){
 				player.sendMessage(ChatColor.RED + "You do not have permission to remove texture pack signs.");
 				event.setCancelled(true);
 			}

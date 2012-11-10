@@ -3,8 +3,8 @@ package uk.co.jacekk.bukkit.texturepackgallery;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
-import uk.co.jacekk.bukkit.baseplugin.v4.command.BaseCommandExecutor;
-import uk.co.jacekk.bukkit.baseplugin.v4.command.CommandHandler;
+import uk.co.jacekk.bukkit.baseplugin.v5.command.BaseCommandExecutor;
+import uk.co.jacekk.bukkit.baseplugin.v5.command.CommandHandler;
 
 public class TexturePackExecutor extends BaseCommandExecutor<TexturePackGallery> {
 	
