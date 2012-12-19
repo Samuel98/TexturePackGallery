@@ -11,8 +11,8 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 
 import net.milkbowl.vault.economy.Economy;
 
-import uk.co.jacekk.bukkit.baseplugin.v5.BasePlugin;
-import uk.co.jacekk.bukkit.baseplugin.v5.storage.DataStore;
+import uk.co.jacekk.bukkit.baseplugin.v6.BasePlugin;
+import uk.co.jacekk.bukkit.baseplugin.v6.storage.DataStore;
 
 public class TexturePackGallery extends BasePlugin {
 	
