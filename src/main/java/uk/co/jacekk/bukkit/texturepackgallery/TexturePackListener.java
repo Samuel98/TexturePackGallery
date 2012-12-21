@@ -1,7 +1,6 @@
 package uk.co.jacekk.bukkit.texturepackgallery;
 
 import net.milkbowl.vault.economy.EconomyResponse;
-import net.minecraft.server.v1_4_5.EntityItemFrame;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -10,8 +9,7 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Sign;
-import org.bukkit.craftbukkit.v1_4_5.CraftWorld;
-import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
+import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event.Result;
 import org.bukkit.event.EventHandler;
@@ -21,6 +19,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.map.MapView;
 import org.bukkit.material.Directional;
 
@@ -141,34 +140,13 @@ public class TexturePackListener extends BaseListener<TexturePackGallery> {
 						map = plugin.server.getMap(pack.getMapID());
 					}
 					
-					CraftItemStack item = new CraftItemStack(Material.MAP, 1, map.getId());
-					
-					net.minecraft.server.v1_4_5.World mcWorld = ((CraftWorld)world).getHandle();
-					
 					BlockFace direction = sign.getFacing();
 					Location frameLocation = block.getRelative(direction.getOppositeFace()).getRelative(BlockFace.UP).getLocation();
 					
-					int facing;
-					
-					switch (direction){
-						case NORTH:
-							facing = 1;
-						break;
-						case WEST:
-							facing = 0;
-						break;
-						case SOUTH:
-							facing = 3;
-						break;
-						default:
-							facing = 2;
-						break;
-					}
-					
-					EntityItemFrame frame = new EntityItemFrame(mcWorld, frameLocation.getBlockX(), frameLocation.getBlockY(), frameLocation.getBlockZ(), facing);
-					frame.a(item.getHandle());
-					
-					mcWorld.addEntity(frame);
+					//TODO: Fix this not putting the frame in the right place
+					ItemFrame itemFrame = world.spawn(frameLocation, ItemFrame.class);
+					itemFrame.setItem(new ItemStack(Material.MAP, 1, map.getId()));
+					itemFrame.setFacingDirection(direction);
 					
 					if (!price.isEmpty() && plugin.econ == null){
 						player.sendMessage(ChatColor.RED + "No economy plugin was found.");
