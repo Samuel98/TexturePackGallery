@@ -1,4 +1,5 @@
-name: TexturePackGallery
-version: 0.2
-main: uk.co.jacekk.bukkit.texturepackgallery.TexturePackGallery
+name: ${project.name}
+version: ${project.version}
+main: ${project.groupId}.${project.artifactId}.${project.name}
+website: ${project.url}
 softdepend: [Vault]
