@@ -67,7 +67,8 @@ public class TexturePackListener extends BaseListener<TexturePackGallery> {
 					}
 					
 					if (plugin.selectedPacks.contains(playerName) && plugin.selectedPacks.getData(playerName).equals(name)){
-						player.sendMessage(ChatColor.RED + "You already have this texture pack selected");
+						plugin.selectedPacks.remove(playerName);
+						player.sendMessage(ChatColor.GREEN + "Texture pack removed");
 						return;
 					}
 					
