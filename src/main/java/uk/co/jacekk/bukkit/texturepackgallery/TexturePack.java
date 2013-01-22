@@ -10,10 +10,10 @@ import java.net.URLConnection;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import net.minecraft.server.v1_4_6.Packet250CustomPayload;
+import net.minecraft.server.v1_4_R1.Packet250CustomPayload;
 
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_4_6.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_4_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.map.MapRenderer;
 import org.bukkit.map.MapView;
