@@ -33,7 +33,7 @@
 		
 		<dependency>
 			<groupId>org.bukkit</groupId>
-			<artifactId>craftbukkit</artifactId>
+			<artifactId>bukkit</artifactId>
 			<version>1.4.7-R0.1</version>
 			<scope>compile</scope>
 		</dependency>

@@ -10,10 +10,7 @@ import java.net.URLConnection;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import net.minecraft.server.v1_4_R1.Packet250CustomPayload;
-
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_4_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.map.MapRenderer;
 import org.bukkit.map.MapView;
@@ -128,11 +125,7 @@ public class TexturePack implements Serializable {
 	}
 	
 	public void offerToPlayer(Player player){
-		if (!(player instanceof CraftPlayer)){
-			throw new UnsupportedOperationException("Only supported for CraftBukkit's CraftPlayer");
-		}
-		
-		((CraftPlayer) player).getHandle().playerConnection.sendPacket(new Packet250CustomPayload("MC|TPack", (this.link + "\0" + 16).getBytes()));
+		player.setTexturePack(this.link);
 	}
 	
 }
