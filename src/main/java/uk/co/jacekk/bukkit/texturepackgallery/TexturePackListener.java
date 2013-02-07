@@ -23,7 +23,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.map.MapView;
 import org.bukkit.material.Directional;
 
-import uk.co.jacekk.bukkit.baseplugin.v8.event.BaseListener;
+import uk.co.jacekk.bukkit.baseplugin.v9.event.BaseListener;
 
 public class TexturePackListener extends BaseListener<TexturePackGallery> {
 	
