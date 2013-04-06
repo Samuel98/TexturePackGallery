@@ -33,7 +33,7 @@ public class TexturePack implements Serializable {
 		
 		this.mapID = -1;
 		
-		this.imageFile = new File(TexturePackGallery.instance.packDir.getAbsolutePath() + File.separator + name + ".png");
+		this.imageFile = new File(TexturePackGallery.getInstance().packDir.getAbsolutePath() + File.separator + name + ".png");
 	}
 	
 	public String getName(){
@@ -71,7 +71,7 @@ public class TexturePack implements Serializable {
 			
 			if (lastMod != this.lastImageCache){
 				if (type != null && !type.equalsIgnoreCase("application/zip")){
-					TexturePackGallery.instance.log.warn("The URL for " + this.name + " is not to a .zip file, will try anyway :s");
+					TexturePackGallery.getInstance().log.warn("The URL for " + this.name + " is not to a .zip file, will try anyway :s");
 				}
 				
 				ZipInputStream input = new ZipInputStream(connection.getInputStream());
@@ -83,9 +83,9 @@ public class TexturePack implements Serializable {
 				}
 				
 				if (entry == null){
-					TexturePackGallery.instance.log.warn("A pack.png image for " + this.name + " could not be found");
+					TexturePackGallery.getInstance().log.warn("A pack.png image for " + this.name + " could not be found");
 				}else{
-					TexturePackGallery.instance.log.warn("Downloading pack.png for " + this.name);
+					TexturePackGallery.getInstance().log.warn("Downloading pack.png for " + this.name);
 					
 					FileOutputStream output = new FileOutputStream(this.imageFile);
 					
@@ -105,9 +105,9 @@ public class TexturePack implements Serializable {
 				input.close();
 			}
 		}catch (MalformedURLException e){
-			TexturePackGallery.instance.log.warn("The URL for " + name + " is not valid");
+			TexturePackGallery.getInstance().log.warn("The URL for " + name + " is not valid");
 		}catch (IOException e){
-			TexturePackGallery.instance.log.warn("Unable to download the pack.png image for " + name);
+			TexturePackGallery.getInstance().log.warn("Unable to download the pack.png image for " + name);
 			e.printStackTrace();
 		}
 	}

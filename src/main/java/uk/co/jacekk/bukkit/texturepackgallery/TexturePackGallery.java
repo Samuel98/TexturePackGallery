@@ -16,7 +16,7 @@ import uk.co.jacekk.bukkit.baseplugin.v9_1.storage.DataStore;
 
 public class TexturePackGallery extends BasePlugin {
 	
-	public static TexturePackGallery instance;
+	private static TexturePackGallery instance;
 	
 	public File packDir;
 	public File packsFile;
@@ -92,6 +92,10 @@ public class TexturePackGallery extends BasePlugin {
 		}
 		
 		instance = null;
+	}
+	
+	public static TexturePackGallery getInstance(){
+		return instance;
 	}
 	
 }
