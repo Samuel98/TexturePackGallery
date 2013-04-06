@@ -62,9 +62,10 @@ public class TexturePack implements Serializable {
 	
 	public void fetchImage(){
 		try{
-			URL url = new URL(this.link);
+			URLConnection connection = (new URL(this.link)).openConnection();
 			
-			URLConnection connection = url.openConnection();
+			connection.setReadTimeout(8000);
+			connection.setConnectTimeout(4000);
 			
 			String type = connection.getContentType();
 			long lastMod = connection.getLastModified();
@@ -89,10 +90,10 @@ public class TexturePack implements Serializable {
 					
 					FileOutputStream output = new FileOutputStream(this.imageFile);
 					
-					byte[] data = new byte[1024];
+					byte[] data = new byte[4096];
 					int read;
 					
-					while ((read = input.read(data, 0, 1024)) != -1){
+					while ((read = input.read(data, 0, 4096)) != -1){
 						output.write(data, 0, read);
 					}
 					
@@ -105,9 +106,9 @@ public class TexturePack implements Serializable {
 				input.close();
 			}
 		}catch (MalformedURLException e){
-			TexturePackGallery.getInstance().log.warn("The URL for " + name + " is not valid");
+			TexturePackGallery.getInstance().log.warn("The URL for " + this.name + " is not valid");
 		}catch (IOException e){
-			TexturePackGallery.getInstance().log.warn("Unable to download the pack.png image for " + name);
+			TexturePackGallery.getInstance().log.warn("Unable to download the pack.png image for " + this.name);
 			e.printStackTrace();
 		}
 	}
