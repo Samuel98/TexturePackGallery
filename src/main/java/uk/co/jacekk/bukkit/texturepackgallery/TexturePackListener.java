@@ -142,9 +142,8 @@ public class TexturePackListener extends BaseListener<TexturePackGallery> {
 					}
 					
 					BlockFace direction = sign.getFacing();
-					Location frameLocation = block.getRelative(BlockFace.UP).getRelative(direction.getOppositeFace()).getLocation();
+					Location frameLocation = block.getRelative(BlockFace.UP).getLocation();
 					
-					//TODO: Fix this not putting the frame in the right place
 					ItemFrame itemFrame = world.spawn(frameLocation, ItemFrame.class);
 					itemFrame.setItem(new ItemStack(Material.MAP, 1, map.getId()));
 					itemFrame.setFacingDirection(direction, true);
