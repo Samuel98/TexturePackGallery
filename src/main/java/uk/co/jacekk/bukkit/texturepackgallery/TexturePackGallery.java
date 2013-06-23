@@ -7,12 +7,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
-import org.bukkit.plugin.RegisteredServiceProvider;
-
 import net.milkbowl.vault.economy.Economy;
 
+import org.bukkit.plugin.RegisteredServiceProvider;
+
 import uk.co.jacekk.bukkit.baseplugin.BasePlugin;
-import uk.co.jacekk.bukkit.baseplugin.config.PluginConfig;
 import uk.co.jacekk.bukkit.baseplugin.storage.DataStore;
 
 public class TexturePackGallery extends BasePlugin {
@@ -32,8 +31,6 @@ public class TexturePackGallery extends BasePlugin {
 		super.onEnable(true);
 		
 		instance = this;
-		
-		this.config = new PluginConfig(new File(this.getBaseDirPath() + File.separator + "config.yml"), Config.class, this.log);
 		
 		this.packDir = new File(this.baseDirPath + File.separator + "pack_cache");
 		
@@ -77,10 +74,6 @@ public class TexturePackGallery extends BasePlugin {
 		this.permissionManager.registerPermissions(Permission.class);
 		this.commandManager.registerCommandExecutor(new TexturePackExecutor(this));
 		this.pluginManager.registerEvents(new TexturePackListener(this), this);
-		
-		if (this.config.getBoolean(Config.ENABLE_PROFILER)){
-			this.enableProfiling();
-		}
 	}
 	
 	public void onDisable(){
